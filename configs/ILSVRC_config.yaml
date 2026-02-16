@@ -1,0 +1,33 @@
+dataset_name: ILSVRC
+data_roots: "/media/arian/Extreme SSD/ILSVRC/ILSVRC"
+metadata_root: "metadata/ILSVRC"
+
+num_classes: 1000
+lr: 5.0e-6
+lr_multiplier: 50
+batch_size: 256
+alpha: 500
+output_channels: 3
+drop_out_value_loc: 0.25
+drop_out_value_cls: 0.25
+epochs: 100
+early_stopping_patience: 10
+
+backbone: dinov2
+embedding_dim: 384
+
+cam_curve_interval: 0.005
+resize_size: 256
+crop_size: 224
+resize_eval: 448
+IMAGE_MEAN_VALUE: [0.485, 0.456, 0.406]
+IMAGE_STD_VALUE: [0.229, 0.224, 0.225]
+
+multi_contour_eval: true
+iou_threshold_list: [30, 50, 70]
+
+momentum: 0.9
+weight_decay: 0.01
+log_dir: "./runs/ILSVRC"
+experiment_name: "test_clean"
+workers: 8
