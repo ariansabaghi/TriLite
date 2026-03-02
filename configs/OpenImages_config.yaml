@@ -1,6 +1,6 @@
 dataset_name: OpenImages
-data_roots: '/mnt/windows/datasets/open_images/OpenImages_images'
-mask_root: '/mnt/windows/datasets/open_images/OpenImages_annotations'
+data_roots: 'path_to_data'
+mask_root: 'path_to_masks'
 metadata_root: 'metadata/OpenImages'
 
 num_classes: 100
@@ -29,5 +29,5 @@ iou_threshold_list: [30, 50, 70]
 
 weight_decay: 0.01
 log_dir: "./runs/open_images"
-experiment_name: "test_clean"
+experiment_name: "your_experiment_name"
 workers: 8

@@ -1,5 +1,5 @@
 dataset_name: ILSVRC
-data_roots: "/media/arian/Extreme SSD/ILSVRC/ILSVRC"
+data_roots: "path_to_data"
 metadata_root: "metadata/ILSVRC"
 
 num_classes: 1000
@@ -29,5 +29,5 @@ iou_threshold_list: [30, 50, 70]
 momentum: 0.9
 weight_decay: 0.01
 log_dir: "./runs/ILSVRC"
-experiment_name: "test_clean"
+experiment_name: "your_experiment_name"
 workers: 8
