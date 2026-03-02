@@ -233,25 +233,26 @@ class WSOLImageLabelDataset(Dataset):
 
 def get_data_loader(args, data_roots, metadata_root, batch_size, workers,
                     resize_size, crop_size, resize_eval, proxy_training_set=False,
-                    num_val_sample_per_class=0):
+                    num_val_sample_per_class=0, data_type="image"):
 
-    if args.dataset_name == "ILSVRC":
-        if args.dataset_name == "ILSVRC":
-            dataset_dict = {
-                'train': LMDBDataset(args, mode='train', resize_size=resize_size, crop_size=crop_size),
-                'val': LMDBDataset(args, mode='val', resize_size=resize_size, crop_size=crop_size),
-                'test': LMDBDataset(args, mode='test', resize_size=resize_size, crop_size=crop_size)
-            }
+    # we use lmdb format of imagenet dataset to control number of files
+    # if you convert your dataset to LMDB format use some other value for data_type argument
+    if args.dataset_name == "ILSVRC" and data_type != "image":
+        dataset_dict = {
+            'train': LMDBDataset(args, mode='train', resize_size=resize_size, crop_size=crop_size),
+            'val': LMDBDataset(args, mode='val', resize_size=resize_size, crop_size=crop_size),
+            'test': LMDBDataset(args, mode='test', resize_size=resize_size, crop_size=crop_size)
+        }
 
-            loaders = {
-                split: DataLoader(
-                    dataset_dict[split],
-                    batch_size=batch_size,
-                    shuffle=split == 'train',
-                    num_workers=workers)
-                for split in _SPLITS
-            }
-            return loaders
+        loaders = {
+            split: DataLoader(
+                dataset_dict[split],
+                batch_size=batch_size,
+                shuffle=split == 'train',
+                num_workers=workers)
+            for split in _SPLITS
+        }
+        return loaders
 
     dataset_transforms = dict(
         train=transforms.Compose([
