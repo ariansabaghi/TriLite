@@ -1,10 +1,12 @@
-# TriLite - Supplementary Material (CVPR 2026 Submission)
+# TriLite - Official PyTorch Implementation (CVPR 2026)
 
-This repository contains supplementary code and resources accompanying our CVPR 2026 submission:
+This repository provides the official PyTorch implementation of:
 
-> **TriLite: Efficient Weakly Supervised Object Localization with Universal Visual Features and Tri-Region Disentanglement**
+> **TriLite: Efficient Weakly Supervised Object Localization with Universal Visual Features and Tri-Region Disentanglement**  
+> Accepted at CVPR 2026.
 
-This codebase is provided to support reproducibility and assist the review process.
+TriLite is a parameter-efficient WSOL framework built on frozen universal visual representations.  
+Despite training fewer than 1M parameters, TriLite achieves new state-of-the-art localization performance across standard WSOL benchmarks.
 
 ---
 
